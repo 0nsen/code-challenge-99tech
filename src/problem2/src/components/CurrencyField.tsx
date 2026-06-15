@@ -9,8 +9,6 @@ interface Props {
   onAmountChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selected: string;
   onCurrencyChange: (c: string) => void;
-  error?: boolean;
-  readOnlyAmount?: boolean;
   autoFocus?: boolean;
 }
 

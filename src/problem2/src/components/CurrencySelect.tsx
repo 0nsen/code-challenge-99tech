@@ -191,7 +191,6 @@ export const CurrencySelect: React.FC<CurrencySelectorProps> = ({
                   >
                     {formatNumber(price, {
                       style: "currency",
-
                       currency: "USD",
                       minimumFractionDigits: 2,
                       maximumFractionDigits: 6,

@@ -30,7 +30,7 @@ export default function SwapForm() {
     if (!isSuccess || !currencies) return;
 
     if (lastEdited === "from") {
-      const parsed = parseFloat(fromAmount);
+      const parsed = parseFloat(fromAmount.replace(/,/g, ""));
       if (!fromAmount || isNaN(parsed) || parsed < 0) {
         setToAmount("");
         return;
@@ -38,7 +38,7 @@ export default function SwapForm() {
       const result = convert(currencies, fromCurrency, toCurrency, parsed);
       setToAmount(formatNumber(result));
     } else {
-      const parsed = parseFloat(toAmount);
+      const parsed = parseFloat(toAmount.replace(/,/g, ""));
       if (!toAmount || isNaN(parsed) || parsed < 0) {
         setFromAmount("");
         return;
@@ -85,14 +85,12 @@ export default function SwapForm() {
 
   const handleToCurrencyChange = (currency: string) => {
     setToCurrency(currency);
-    setLastEdited("to");
+    setLastEdited("from");
   };
 
   const handleSwapCurrencies = () => {
     setFromCurrency(toCurrency);
     setToCurrency(fromCurrency);
-    setFromAmount(toAmount || "");
-    setToAmount(fromAmount || "");
     setLastEdited("from");
   };
 

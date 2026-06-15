@@ -11,5 +11,6 @@ export const useCurrencies = () => {
         data.map((item) => [item.currency, item.price]),
       ) as CurrencyMap;
     },
+    staleTime: 300_000,
   });
 };
